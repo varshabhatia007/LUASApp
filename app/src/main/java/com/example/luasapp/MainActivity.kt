@@ -88,7 +88,7 @@ class MainActivity : AppCompatActivity() {
     @SuppressLint("NewApi", "SetTextI18n")
     private fun updateViews(info: StopInfo) {
         binding.stopName.text = info.stop
-        binding.dateTime.text = """Current Date & Time : ${LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd-MMM-yyy HH:MM:SS"))}"""
+        binding.dateTime.text = "${getString(R.string.current_date_time)}${LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd-MMM-yyy HH:MM:SS"))}"
         binding.message.text = info.message
         tramInfoAdapter.apply {
             this.submit(
