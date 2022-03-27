@@ -1,6 +1,8 @@
 package com.example.luasapp
 
 import android.os.Bundle
+import android.util.Log
+
 import androidx.appcompat.app.AppCompatActivity
 import com.example.luasapp.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -17,8 +19,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.textView.text = "Demo APP"
-
+        Log.e("Reading server_url from secret", BuildConfig.SERVER_URL)
     }
-
-
 }

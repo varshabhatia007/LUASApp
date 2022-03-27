@@ -5,6 +5,10 @@ plugins {
     id 'kotlin-kapt'
 }
 
+def secretPropertyFile = rootProject.file('secret.properties')
+def secretProperties = new Properties()
+secretProperties.load(new FileInputStream(secretPropertyFile))
+
 android {
     compileSdkVersion 31
 
@@ -18,6 +22,8 @@ android {
         targetSdkVersion 31
         versionCode 1
         versionName "1.0"
+
+        buildConfigField "String", "SERVER_URL", secretProperties['SERVER_URL']
     }
 
     buildTypes {
